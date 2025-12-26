@@ -1,17 +1,21 @@
-# Triangle
+# Coverage Exercise - Triangle
 
-Triangle is an example program for a [software testing exercise](ASSIGNMENT.md) that focuses on
-unit testing and test effectiveness, using code coverage criteria.
+This is a software testing exercise that focuses on unit testing and test effectiveness using code coverage criteria. Students learn to create comprehensive test suites that achieve different types of coverage for a simple Triangle classification program.
 
-#### How to run Triangle tests from the terminal
+**Original Exercise**: This exercise was originally developed by Professor Rene Just. The original version can be found at: https://bitbucket.org/rjust/coverage/src/master/
 
-Run these commands from the Triangle root directory,
-which contains the `build.gradle` build file.
+## Overview
 
-1. Run `./gradlew test` to run the tests and compute coverage results.
+The Triangle program classifies triangles based on the lengths of their three sides. Students must create test suites that achieve specific coverage criteria:
 
-2. View the coverage report.
-    * If you are running on a UW CSE machine such as attu, you will find the report at
-      https://homes.cs.washington.edu/~$USER/jacoco_report , where $USER is your CSE NetID.
-    * Otherwise, find the report in file
-      `build/reports/jacoco/test/html/index.html`
+- **SC** (Statement Coverage) - Tests must execute all statements in the code
+- **DC** (Decision Coverage) - Tests must exercise all decision branches  
+- **CC** (Condition Coverage) - Tests must evaluate all conditions to both true and false
+- **MCDC** (Modified Condition/Decision Coverage) - Advanced coverage criterion requiring each condition to independently affect the decision outcome
+
+## Quick Start
+
+1. **Run tests with coverage**: `./gradlew test`
+2. **View coverage report**: Open `build/reports/jacoco/test/html/index.html` in your browser
+3. **Tag your progress**: Use `git tag SC`, `git tag DC`, etc. after each coverage milestone
+4. **Create submission**: Use `tar -czf coverage.tar.gz coverage/` to create your submission archive
