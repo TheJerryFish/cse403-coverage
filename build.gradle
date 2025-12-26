@@ -1,0 +1,38 @@
+plugins {
+  id 'java'
+
+  // Run `./gradlew test` to compute coverage.
+  //  * If you are running on a UW CSE machine such as attu, find the report at
+  //    https://homes.cs.washington.edu/~$USER/jacoco_report , where $USER is your CSE NetID.
+  //  * Otherwise, find the report in file
+  //    build/reports/jacoco/test/html/index.html
+  id 'jacoco'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
+}
+
+test {
+  finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+  dependsOn test // tests are required to run before generating the report
+  // Depending on where you run this, /homes/gws may not exist.
+  // For example, attu has /homes/iws; checking if /homes/ exists ensures
+  // Test report generation works on any CSE-managed machine.
+  if (new File("/homes/").exists()) {
+    reports {
+      html.outputLocation = file("/cse/web/homes/" + System.env.USER + "/jacoco_report")
+    }
+  }
+}
