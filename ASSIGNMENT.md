@@ -37,7 +37,7 @@ javac -version
 
 **Option 2: Install/Switch Java Version on Your Machine**
 
-**macOS/Linux:**
+**macOS/Linux/Windows WSL:**
 ```bash
 # Using SDKMAN (recommended for managing multiple Java versions)
 curl -s "https://get.sdkman.io" | bash
@@ -45,9 +45,10 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 17.0.2-open
 sdk use java 17.0.2-open
 
-# Or using Homebrew (macOS)
-brew install openjdk@17
-export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
+# Or using package managers
+# Ubuntu/Debian (WSL): sudo apt install openjdk-17-jdk
+# macOS with Homebrew: brew install openjdk@17
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64  # Adjust path as needed
 ```
 
 **Windows (PowerShell):**
@@ -68,7 +69,7 @@ $env:PATH = "$env:JAVA_HOME\bin;$env:PATH"
 
 ### Running Tests and Coverage Analysis
 
-**macOS/Linux:**
+**macOS/Linux/Windows WSL:**
 ```bash
 ./gradlew test
 ```
@@ -176,7 +177,7 @@ One team member should submit both portions to **Gradescope**:
 
 ### Creating Your Submission Archive
 
-**macOS/Linux:**
+**macOS/Linux/Windows WSL:**
 ```bash
 # From the parent directory of your coverage folder:
 tar -czf coverage.tar.gz coverage/
@@ -205,8 +206,8 @@ git tag MCDC  # After completing MCDC
 
 ### Troubleshooting
 - **Permission errors on gradlew**: 
-  - macOS/Linux: `chmod +x gradlew`
-  - Windows: Use `.\gradlew.bat` instead of `./gradlew`
+  - macOS/Linux/Windows WSL: `chmod +x gradlew`
+  - Windows PowerShell: Use `.\gradlew.bat` instead of `./gradlew`
 - **Java version issues**: Use UW CSE machines (attu) or follow Java setup instructions above
-- **Clean builds**: Use `./gradlew clean test` (or `.\gradlew.bat clean test` on Windows) if you encounter build issues
+- **Clean builds**: Use `./gradlew clean test` (macOS/Linux/WSL) or `.\gradlew.bat clean test` (Windows PowerShell) if you encounter build issues
 - **Coverage not showing**: Ensure your tests are in `src/test/java/triangle/TriangleTest.java`
