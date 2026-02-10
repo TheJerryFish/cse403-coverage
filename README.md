@@ -11,7 +11,6 @@ The Triangle program classifies triangles based on the lengths of their three si
 - **SC** (Statement Coverage) - Tests must execute all statements in the code
 - **DC** (Decision Coverage) - Tests must exercise all decision branches  
 - **CC** (Condition Coverage) - Tests must evaluate all conditions to both true and false
-- **MCDC** (Modified Condition/Decision Coverage) - Advanced coverage criterion requiring each condition to independently affect the decision outcome
 
 ## Quick Start
 
