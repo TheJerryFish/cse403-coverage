@@ -23,5 +23,22 @@ public class TriangleTest {
   @Test
   public void testTable() {
     testTriangle(INVALID, 0, 0, 0);
+    testTriangle(INVALID, 0, 0, 1);
+    testTriangle(INVALID, 0, 1, 0);
+    testTriangle(INVALID, 0, 1, 1);
+    testTriangle(INVALID, 1, 0, 0);
+    testTriangle(INVALID, 1, 0, 1);
+    testTriangle(INVALID, 1, 1, 0);
+    testTriangle(ISOSCELES, 2, 2, 3);
+    testTriangle(ISOSCELES, 2, 3, 3);
+    testTriangle(ISOSCELES, 3, 2, 3);
+    testTriangle(INVALID, 1, 2, 3);
+    testTriangle(INVALID, 2, 3, 1);
+    testTriangle(INVALID, 3, 2, 1);
+    testTriangle(SCALENE, 2, 3, 4);
+    testTriangle(EQUILATERAL, 4, 4, 4);
+    testTriangle(INVALID, 2, 2, 5);
+    testTriangle(INVALID, 2, 5, 2);
+    testTriangle(INVALID, 5, 2, 2);
   }
 }
