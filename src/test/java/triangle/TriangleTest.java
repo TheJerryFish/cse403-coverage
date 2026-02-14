@@ -22,6 +22,7 @@ public class TriangleTest {
 
   @Test
   public void testTable() {
+    //DC Test Cases
     testTriangle(INVALID, 0, 0, 0);
     testTriangle(INVALID, 0, 0, 1);
     testTriangle(INVALID, 0, 1, 0);
